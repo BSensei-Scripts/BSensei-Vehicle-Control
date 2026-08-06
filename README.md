@@ -145,3 +145,13 @@ The anchor and hover mode shortcuts do not block commands used while the player 
 With **BSensei Vehicle Control**, your players finally have a complete menu to manage their cars, boats and helicopters.
 
 Control, immersion and simplicity... everything is included.
+
+---
+
+## 📥 Download
+
+[Download BSensei Vehicle Control on Tebex](https://sensei-scripts-store.tebex.io/package/7559119)
+
+## 📚 Documentation
+
+[Official GitBook Documentation](https://bsensei-script.gitbook.io/bsensei-script-documentation-officiel-fivem/bsensei-vehicle-control-controle-complet-des-vehicules)

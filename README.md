@@ -1,183 +1,147 @@
-# BSensei Vehicle Control V2
+<p align="center">
+  <img src="vehicle-control.png" width="100%">
+</p>
 
-Complete vehicle control center for ESX Legacy.
+# 🚘 COMPLETE VEHICLE CONTROL
 
-## Features
+Take full control of your vehicles through a modern, intuitive and fully configurable interface!
 
-### Cars and land vehicles
+---
 
-- Engine
-- Vehicle locking
-- Lights
-- High beams
-- Interior lighting
-- Turn signals
+## 🌆 Overview
+
+BSensei Vehicle Control improves vehicle management on your FiveM server running **ESX Legacy**.
+
+All the main features are brought together in one clear and easy-to-use menu.
+
+The script automatically adapts to cars, boats and helicopters to display only the options compatible with the vehicle being used.
+
+---
+
+# 🔥 Main Features
+
+## 🚗 Full Vehicle Control
+
+Players can manage the following directly from the menu:
+
+- Start and stop the engine
+- Low beams and high beams
+- Left and right turn signals
 - Hazard lights
-- Hood
-- Trunk
-- Individual doors
-- Windows
+- Open and close doors
+- Open the hood and trunk
+- Window controls
 - Seat switching
-- Cruise control
 
-### Boats and jet skis
+---
 
-- All compatible features
-- Synchronized anchor
-- Reinforced immobilization for jet skis
+## 🏎️ Cruise Control
 
-### Helicopters
+Players can select and maintain a speed directly from the menu.
 
-- Hover lock at any altitude
-- Locked position and heading
-- Automatic deactivation when the pilot leaves the aircraft
+The minimum and maximum speeds are fully configurable in `config.lua`.
 
-### Interface
+---
 
-- Movable
-- Adjustable size
-- Adjustable color
-- Adjustable opacity
-- Individual KVP-based saving
-- No SQL required
+## ⚓ Boat Anchor
 
-## Keybind
+Boats and jet skis include an anchor system that allows them to remain in position.
 
-Default: `F5`
+The anchor can be activated from the menu, with a command or with a configurable key.
 
-Each player can change it in:
+The script automatically checks the boat's speed before allowing the anchor to be activated.
 
-`FiveM Settings > Key Bindings > FiveM`
+---
 
-The entry appears as:
+## 🚁 Helicopter Hover Mode
 
-`BSensei - Open Vehicle Menu`
+Helicopters can maintain their position, altitude and heading.
 
-## Installation
+Hover mode remains active when changing seats as long as someone remains inside the aircraft.
 
-1. Place the `BSensei_vehicle_control_v2` folder inside your resources directory.
-2. Add:
+When all players leave the helicopter, hover mode is automatically disabled.
 
-```cfg
-ensure BSensei_vehicle_control_v2
-```
+---
 
-3. Disable the older separate versions:
+## 💜 Neon Controls
 
-```cfg
-# ensure BSensei_anchor
-# ensure BSensei_hoverlock
-# ensure BSensei_vehicle_control
-```
+The script only detects neon lights that are actually installed on the vehicle.
 
-## Dependency
+Players can:
 
-- es_extended
+- Enable or disable the neon lights
+- Control each side independently
+- Use several configurable lighting effects
 
-## Configuration
+A vehicle without installed neon lights will not be able to activate them artificially.
 
-All main options are available in `config.lua`.
+---
 
-## What's New in V2.1
+## 🎨 Modern Interface
 
-- Settings moved to a secondary window.
-- The main menu no longer changes while sliders are being adjusted.
-- Size and opacity are only applied after confirmation.
-- More rounded interface design.
-- Less square-shaped buttons, tabs, and panels.
+The menu features a smooth, clear and immersive NUI interface.
 
-## What's New in V2.2
+Players can quickly control their vehicle without using several different commands or scripts.
 
-- Main interface inspired by the showcased cockpit design.
-- Settings displayed in an external panel next to the main menu.
-- ON/OFF buttons for the engine, locking, lights, interior lighting, hazard lights, and turn signals.
-- Turn signals and hazard lights can now be disabled by clicking them again.
-- Adjustable interface corner radius.
-- Neon module:
-  - global activation;
-  - activation by side;
-  - customizable color;
-  - static mode;
-  - pulse mode;
-  - rainbow mode;
-  - notification when no neon kit is installed.
+Features that are incompatible with the vehicle being used are automatically disabled.
 
-## V2.3.1 Fix
+---
 
-- Restored the F5 menu from the stable V2.2 version.
-- Alternative command: `/vehiclemenu`.
-- Live settings preview.
-- Cancelling or closing restores the previous settings.
-- All V2.2 features are preserved: anchor, hover lock, and neon lights.
+## ⚙️ Simple Configuration
 
-## V2.4.0 - Command Fixes
+Everything can be customized in `config.lua`:
 
-- F5: vehicle menu, configurable through FiveM key bindings.
-- G: anchor, configurable through FiveM key bindings.
-- H: helicopter hover lock, configurable through FiveM key bindings.
-- Commands: `/vehiclemenu`, `/ancre`, and `/stationnaire`.
-- Neon color selection removed from the menu.
-- Neon modes: static and pulse only, without changing the custom color.
-- Neon buttons remain clickable so the notification is displayed when no neon kit is detected.
-- For perfect detection with a custom script, call this client-side export:
+- Menu opening command and key
+- Anchor and hover mode commands
+- Cruise control limits
+- Maximum speed allowed for anchor activation
+- Available features depending on the vehicle
+- Neon lighting effects
+- Messages and notifications
+- Interface colors and appearance
 
-```lua
-exports['BSensei_vehicle_control_v2']:SetNeonInstalled(vehicle, true)
-```
+---
 
-## V2.4.1 - Neon Effects
+# 💻 Technologies and Dependencies
 
-- Static
-- Pulse
-- Soft breathing
-- Rainbow
-- Strobe
-- Four-side sweep
-- Front/rear alternation
+| Component | Requirement |
+|-----------|-------------|
+| Framework | ESX Legacy |
+| Interface | Modern NUI |
+| Database | None |
+| SQL File | Not required |
+| Main Dependency | `es_extended` |
 
-The menu does not allow the color to be selected manually.
+---
 
-Static mode restores the color installed by the vehicle customization script.
+# 🎮 Commands & Interactions
 
-## V2.4.2 Fixes
+| Command | Description |
+|---------|-------------|
+| **F5** | Open the Vehicle Control menu |
+| **/vehiclemenu** | Open the menu via command |
+| **/ancre** | Drop or raise the anchor |
+| **/stationnaire** | Enable or disable helicopter hover mode |
 
-- Hover lock now correctly freezes the helicopter's position, altitude, and orientation.
-- Hover lock remains active after switching seats.
-- It can be disabled from any seat inside the helicopter.
-- G and H no longer trigger any action or notification while inside a car.
-- Normal lights and high beams have been fixed.
-- Left and right turn signals have been restored to the correct sides.
-- Neon detection is now strict:
-  - state bag `neonInstalled = true`, or
-  - at least one neon light already active.
-- Vehicles without installed neon lights can no longer create them through the menu.
+> **Note:** Keys can be changed directly from the FiveM settings.
 
-### Integration with a vehicle customization script
+The anchor and hover mode shortcuts do not block commands used while the player is inside a car.
 
-When neon lights are installed, call this client-side export:
+---
 
-```lua
-exports['BSensei_vehicle_control_v2']:SetNeonInstalled(vehicle, true)
-```
+# 📦 Included in the Package
 
-When they are removed:
+- ✅ BSensei Vehicle Control script
+- ✅ Complete configuration file
+- ✅ Modern NUI interface
+- ✅ French & English translations
+- ✅ Complete documentation
+- ✅ Official BSensei Scripts Discord support
 
-```lua
-exports['BSensei_vehicle_control_v2']:SetNeonInstalled(vehicle, false)
-```
+---
 
-## V2.4.3 Fix
+# 🚘 One Menu to Control All Your Vehicles!
 
-- Hover lock remains active as long as at least one person is inside the helicopter.
-- If every player exits or jumps out of the helicopter:
-  - the freeze is removed;
-  - hover lock is disabled server-side;
-  - the helicopter immediately resumes normal physics.
+With **BSensei Vehicle Control**, your players finally have a complete menu to manage their cars, boats and helicopters.
 
-## V2.4.4 Fix
-
-- Definitive fix for the `localHover` nil error.
-- The loop now uses a secure local copy of the state.
-- Network events can disable hover lock without crashing the loop.
-- Automatic deactivation when the helicopter is empty is preserved.
-
+Control, immersion and simplicity... everything is included.
